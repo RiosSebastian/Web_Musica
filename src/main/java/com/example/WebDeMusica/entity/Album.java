@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,5 +19,9 @@ public class Album {
 
     private String titulo;
 
+    private String genero;
+
     private Integer año;
+
+     private List canciones;
 }
