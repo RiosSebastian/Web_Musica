@@ -3,11 +3,18 @@ package com.example.WebDeMusica.servis.servisImpl;
 import com.example.WebDeMusica.dto.AlbumDtoRes;
 import com.example.WebDeMusica.dto.UserDtoRes;
 import com.example.WebDeMusica.dto.dtoReq.AlbumDtoReq;
+import com.example.WebDeMusica.repository.AlbumRepository;
 import com.example.WebDeMusica.servis.AlbumServis;
 
 import java.util.List;
 
-public class AlbumServisImpl extends AlbumServis {
+public class AlbumServisImpl implements AlbumServis {
+
+    private final AlbumRepository albumRepository;
+
+    public AlbumServisImpl(AlbumRepository albumRepository) {
+        this.albumRepository = albumRepository;
+    }
 
     @Override
     public AlbumDtoRes createAlbum(AlbumDtoReq albumDtoReq) {

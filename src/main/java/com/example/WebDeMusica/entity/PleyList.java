@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,5 +19,5 @@ public class PleyList {
     private long id;
     private String nombre;
     private LocalDateTime fecha_de_creacion;
-
+    private List canciones;
 }

@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class Canciones {
     private Long id;
     private String titulo;
+    private String autor;
     private float duracion;
     private String urlArchivo;
 
