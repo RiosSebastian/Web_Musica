@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CancionRepository extends JpaRepository<Canciones, Long> {
+    <T> ScopedValue<T> findAll(String titulo);
 }

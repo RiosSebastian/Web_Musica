@@ -21,7 +21,9 @@ public class Album {
 
     private String genero;
 
-    private Integer año;
+    private Integer anno;
+
+    private String ImageUrl;
 
      private List canciones;
 }

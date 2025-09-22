@@ -11,8 +11,6 @@ import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
 public class Artista {
 
@@ -20,7 +18,7 @@ public class Artista {
 
     private String nombre;
 
-    private String Historia;
+    private String Biografia;
 
     private List discografia;
 }

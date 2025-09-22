@@ -18,6 +18,6 @@ public class PleyList {
 
     private long id;
     private String nombre;
-    private LocalDateTime fecha_de_creacion;
+    private LocalDateTime FechaDeCreacion;
     private List canciones;
 }

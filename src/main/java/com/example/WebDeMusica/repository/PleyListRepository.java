@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PleyListRepository extends JpaRepository<PleyList, Long> {
+    <T> ScopedValue<T> findAll(String nombre);
+
+    <T> ScopedValue<T> findByNombre(String nombre);
 }

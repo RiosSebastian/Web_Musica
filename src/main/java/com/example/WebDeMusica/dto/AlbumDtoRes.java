@@ -6,7 +6,8 @@ import java.util.List;
 @Builder
 public record AlbumDtoRes(String titulo,
                           String genero,
-                          Integer año,
+                          Integer anno,
+                          String ImageUrl,
                           List canciones) {
 
 }
