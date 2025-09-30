@@ -4,10 +4,10 @@ import lombok.NonNull;
 
 import java.util.List;
 
-public record ArtisitaDtoReq( @NonNull
+public record ArtistaDtoReq(@NonNull
                              String nombre,
-                             @NonNull
-                             String Historia,
-                             @NonNull
+                            @NonNull
+                             String Biografia,
+                            @NonNull
                              List discografi) {
 }

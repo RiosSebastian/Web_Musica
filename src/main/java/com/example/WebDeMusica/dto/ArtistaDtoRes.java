@@ -5,6 +5,6 @@ import lombok.Builder;
 import java.util.List;
 @Builder
 public record ArtistaDtoRes(String nombre,
-                            String Historia,
+                            String Biografia,
                             List discografia) {
 }

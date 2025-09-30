@@ -6,7 +6,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Builder
-public record PleylistDtoRes(String nombre,
+public record PleyListDtoRes(long id,
+                             String nombre,
                              LocalDateTime fecha_de_creacion,
 
                              List canciones) {

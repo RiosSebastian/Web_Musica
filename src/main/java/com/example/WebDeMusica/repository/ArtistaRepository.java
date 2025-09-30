@@ -4,4 +4,5 @@ import com.example.WebDeMusica.entity.Artista;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArtistaRepository extends JpaRepository<Artista, Long> {
+    <T> ScopedValue<T> findByNombre(String nombre);
 }

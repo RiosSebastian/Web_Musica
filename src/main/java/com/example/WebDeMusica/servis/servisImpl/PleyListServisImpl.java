@@ -1,14 +1,13 @@
 package com.example.WebDeMusica.servis.servisImpl;
 
 import com.example.WebDeMusica.dto.CancionesDtoRes;
-import com.example.WebDeMusica.dto.PleylistDtoRes;
+import com.example.WebDeMusica.dto.PleyListDtoRes;
 import com.example.WebDeMusica.dto.dtoReq.PleyListDtoReq;
 import com.example.WebDeMusica.entity.PleyList;
 import com.example.WebDeMusica.repository.PleyListRepository;
 import com.example.WebDeMusica.servis.PleyListServis;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -20,8 +19,9 @@ public class PleyListServisImpl implements PleyListServis {
         this.pleyListRepository = pleyListRepository;
     }
 
+
     @Override
-    public PleylistDtoRes createPleyList(PleyListDtoReq pleyListDtoReq) {
+    public PleyListDtoRes createPletList(PleyListDtoReq pleyListDtoReq) {
         PleyList pleyList = new PleyList();
         pleyList.setNombre(pleyListDtoReq.nombre());
         pleyList.setFechaDeCreacion(pleyListDtoReq.fecha_de_creacion());
@@ -29,7 +29,7 @@ public class PleyListServisImpl implements PleyListServis {
 
         pleyListRepository.save(pleyList);
 
-        return new PleylistDtoRes(
+        return new PleyListDtoRes(
                 pleyList.getId(),
                 pleyList.getNombre(),
                 pleyList.getFechaDeCreacion(),
@@ -38,30 +38,30 @@ public class PleyListServisImpl implements PleyListServis {
     }
 
     @Override
-    public PleylistDtoRes getByNombre(String nombre) {
-        PleyList pleyList = pleyListRepository.findByNombre(nombre)
+    public List<CancionesDtoRes> getByNombre(String nombre) {
+        PleyList pleyList = (PleyList) pleyListRepository.findByNombre(nombre)
                 .orElseThrow(() -> new RuntimeException("Playlist no encontrada"));
 
-        return new PleylistDtoRes(
+        return new PleyListDtoRes(
                 pleyList.getId(),
                 pleyList.getNombre(),
                 pleyList.getFechaDeCreacion(),
                 pleyList.getCanciones()
-        );
+        ).canciones();
     }
 
     @Override
-    public PleylistDtoRes updatePleyList(String nombre, PleyListDtoReq pleyListDtoReq) {
-        PleyList pleyList = pleyListRepository.findByNombre(nombre)
+    public PleyListDtoRes updatePleyList(String nombre, PleyListDtoReq pleyListDtoReq) {
+        PleyList pleyList = (PleyList) pleyListRepository.findByNombre(nombre)
                 .orElseThrow(() -> new RuntimeException("Playlist no encontrada"));
 
         pleyList.setNombre(pleyListDtoReq.nombre());
-        pleyList.setFechaDeCreacion(pleyListDtoReq.fechaDeCreacion());
+        pleyList.setFechaDeCreacion(pleyListDtoReq.fecha_de_creacion());
         pleyList.setCanciones(pleyListDtoReq.canciones());
 
         pleyListRepository.save(pleyList);
 
-        return new PleylistDtoRes(
+        return new PleyListDtoRes(
                 pleyList.getId(),
                 pleyList.getNombre(),
                 pleyList.getFechaDeCreacion(),
@@ -71,16 +71,16 @@ public class PleyListServisImpl implements PleyListServis {
 
     @Override
     public void deletePleyList(String nombre) {
-        PleyList pleyList = pleyListRepository.findByNombre(nombre)
+        PleyList pleyList = (PleyList) pleyListRepository.findByNombre(nombre)
                 .orElseThrow(() -> new RuntimeException("Playlist no encontrada"));
 
         pleyListRepository.delete(pleyList);
     }
 
     @Override
-    public List<PleylistDtoRes> getAllPleyList() {
+    public List<PleyListDtoRes> getAllPleyList() {
         return pleyListRepository.findAll().stream()
-                .map(p -> new PleylistDtoRes(
+                .map(p -> new PleyListDtoRes(
                         p.getId(),
                         p.getNombre(),
                         p.getFechaDeCreacion(),

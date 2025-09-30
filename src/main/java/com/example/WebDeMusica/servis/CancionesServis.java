@@ -1,8 +1,6 @@
 package com.example.WebDeMusica.servis;
 
-import com.example.WebDeMusica.dto.ArtistaDtoRes;
 import com.example.WebDeMusica.dto.CancionesDtoRes;
-import com.example.WebDeMusica.dto.dtoReq.ArtisitaDtoReq;
 import com.example.WebDeMusica.dto.dtoReq.CancionesDtoReq;
 
 import java.io.IOException;

@@ -26,9 +26,9 @@ public class CancionController {
         return ResponseEntity.ok(cancionService.createCancion(cancionDtoReq));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<CancionesDtoRes> getCancion(@PathVariable Long id) {
-        return ResponseEntity.ok(cancionService.getCancionById(id));
+    @GetMapping("/{titulo}")
+    public ResponseEntity<List<CancionesDtoRes>> getCancion(@PathVariable String titulo) {
+        return ResponseEntity.ok(cancionService.getCancionBytitulo(titulo));
     }
 
     @GetMapping

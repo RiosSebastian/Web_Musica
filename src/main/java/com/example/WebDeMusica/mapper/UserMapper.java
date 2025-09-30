@@ -2,6 +2,7 @@ package com.example.WebDeMusica.mapper;
 
 import com.example.WebDeMusica.dto.UserDtoRes;
 import com.example.WebDeMusica.dto.dtoReq.UserDtoReq;
+import com.example.WebDeMusica.entity.Artista;
 import com.example.WebDeMusica.entity.UserEntity;
 import com.example.WebDeMusica.entity.UserEnum;
 
