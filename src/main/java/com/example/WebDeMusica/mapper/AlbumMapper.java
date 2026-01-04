@@ -10,7 +10,7 @@ public class AlbumMapper {
     public static AlbumDtoRes toDto(Album album){
         return AlbumDtoRes.builder()
                 .titulo(album.getTitulo())
-                .año(album.getAño())
+                .anio(album.getAnio())
                 .genero(album.getGenero())
                 .canciones(album.getCanciones())
                 .build();
@@ -19,7 +19,7 @@ public class AlbumMapper {
     public static Album toAlbum(AlbumDtoReq request){
         return Album.builder()
                 .titulo(request.titulo())
-                .año(request.año())
+                .anio(request.anio())
                 .genero(request.genero())
                 .canciones(request.canciones())
                 .build();

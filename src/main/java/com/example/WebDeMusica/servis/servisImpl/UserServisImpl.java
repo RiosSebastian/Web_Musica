@@ -3,7 +3,7 @@ package com.example.WebDeMusica.servis.servisImpl;
 import com.example.WebDeMusica.dto.UserDtoRes;
 import com.example.WebDeMusica.dto.dtoReq.UserDtoReq;
 import com.example.WebDeMusica.entity.UserEntity;
-import com.example.WebDeMusica.entity.UserEnum;
+import com.example.WebDeMusica.util.UserEnum;
 import com.example.WebDeMusica.exeption.NotFoundException;
 import com.example.WebDeMusica.mapper.UserMapper;
 import com.example.WebDeMusica.repository.UserRepository;

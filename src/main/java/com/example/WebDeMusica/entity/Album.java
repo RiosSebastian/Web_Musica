@@ -21,7 +21,7 @@ public class Album {
 
     private String genero;
 
-    private Integer anno;
+    private Integer anio;
 
     private String ImageUrl;
 

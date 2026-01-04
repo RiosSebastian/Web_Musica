@@ -9,7 +9,7 @@ public record AlbumDtoReq(@NonNull
                           @NonNull
                           String genero,
                           @NonNull
-                          Integer anno,
+                          Integer anio,
                           String ImageUrl,
                           @NonNull
                           List canciones) {

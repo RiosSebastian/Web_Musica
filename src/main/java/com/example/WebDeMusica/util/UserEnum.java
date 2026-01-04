@@ -1,4 +1,4 @@
-package com.example.WebDeMusica.entity;
+package com.example.WebDeMusica.util;
 
 public enum UserEnum {
     Admin,

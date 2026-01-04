@@ -67,7 +67,7 @@ public class AlbumController {
     }
 
     // Buscar álbum por año
-    @GetMapping("/anno/{anno}")
+    @GetMapping("/anio/{anio}")
     public ResponseEntity<AlbumDtoRes> getByAnno(@PathVariable Integer anno) {
         try {
             return ResponseEntity.ok(albumServis.getAnno(anno));

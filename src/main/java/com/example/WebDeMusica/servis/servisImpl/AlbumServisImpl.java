@@ -1,7 +1,6 @@
 package com.example.WebDeMusica.servis.servisImpl;
 
 import com.example.WebDeMusica.dto.AlbumDtoRes;
-import com.example.WebDeMusica.dto.UserDtoRes;
 import com.example.WebDeMusica.dto.dtoReq.AlbumDtoReq;
 import com.example.WebDeMusica.entity.Album;
 import com.example.WebDeMusica.repository.AlbumRepository;
@@ -24,7 +23,7 @@ public class AlbumServisImpl implements AlbumServis {
         Album album = new Album();
         album.setTitulo(albumDtoReq.titulo());
         album.setGenero(albumDtoReq.genero());
-        album.setAnno(albumDtoReq.anno());
+        album.setAnio(albumDtoReq.anio());
         album.setImageUrl(albumDtoReq.imageUrl());
 
         albumRepository.save(album);
@@ -32,8 +31,9 @@ public class AlbumServisImpl implements AlbumServis {
         return new AlbumDtoRes(
                 album.getTitulo(),
                 album.getGenero(),
-                album.getAnno(),
-                album.getImageUrl()
+                album.getAnio(),
+                album.getImageUrl(),
+                album.getCanciones()
         );
     }
 
@@ -44,7 +44,7 @@ public class AlbumServisImpl implements AlbumServis {
 
         album.setTitulo(albumDtoReq.titulo());
         album.setGenero(albumDtoReq.genero());
-        album.setAnno(albumDtoReq.anno());
+        album.setAnio(albumDtoReq.anio());
         album.setImageUrl(albumDtoReq.imageUrl());
 
         albumRepository.save(album);
@@ -56,21 +56,21 @@ public class AlbumServisImpl implements AlbumServis {
     public AlbumDtoRes getGenero(String genero) {
         Album album = albumRepository.findByGenero(genero)
                 .orElseThrow(() -> new RuntimeException("Álbum con género no encontrado"));
-        return new AlbumDtoRes(album.getTitulo(), album.getGenero(), album.getAnno(), album.getImageUrl());
+        return new AlbumDtoRes(album.getTitulo(), album.getGenero(), album.getAnio(), album.getImageUrl(), album.getCanciones());
     }
 
     @Override
     public AlbumDtoRes getTitulo(String titulo) {
         Album album = albumRepository.findByTitulo(titulo)
                 .orElseThrow(() -> new RuntimeException("Álbum con título no encontrado"));
-        return new AlbumDtoRes( album.getTitulo(), album.getGenero(), album.getAnno(), album.getImageUrl());
+        return new AlbumDtoRes( album.getTitulo(), album.getGenero(), album.getAnio(), album.getImageUrl(), album.getCanciones());
     }
 
     @Override
     public AlbumDtoRes getAnno(Integer anno) {
         Album album = albumRepository.findByAnno(anno)
                 .orElseThrow(() -> new RuntimeException("Álbum del año " + anno + " no encontrado"));
-        return new AlbumDtoRes(album.getId(), album.getTitulo(), album.getGenero(), album.getAnno(), album.getImageUrl());
+        return new AlbumDtoRes(album.getId(), album.getTitulo(), album.getGenero(), album.getAnio(), album.getImageUrl(),);
     }
 
     @Override
@@ -84,7 +84,7 @@ public class AlbumServisImpl implements AlbumServis {
     @Override
     public List<AlbumDtoRes> getAllAlbum() {
         return albumRepository.findAll().stream()
-                .map(album -> new AlbumDtoRes(album.getTitulo(), album.getGenero(), album.getAnno(), album.getImageUrl()))
+                .map(album -> new AlbumDtoRes(album.getTitulo(), album.getGenero(), album.getAnio(), album.getImageUrl(), album.getCanciones()))
                 .toList();
     }
 
@@ -96,6 +96,6 @@ public class AlbumServisImpl implements AlbumServis {
         album.setImageUrl(imageUrl);
         albumRepository.save(album);
 
-        return new AlbumDtoRes(album.getId(), album.getTitulo(), album.getGenero(), album.getAnno(), album.getImageUrl());
+        return new AlbumDtoRes(album.getId(), album.getTitulo(), album.getGenero(), album.getAnio(), album.getImageUrl());
     }
 }
